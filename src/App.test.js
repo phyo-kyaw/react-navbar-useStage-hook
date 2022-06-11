@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import App from './App';
 import { render, fireEvent, cleanup } from '@testing-library/react';
 
@@ -10,14 +11,18 @@ afterEach(() => {
   cleanup();
 });
 
-let tabContent, navigationTabs;
+var tabContent, navigationTabs;
+//var { getByTestId } = renderApp();
 beforeEach(() => {
-  let { getByTestId } = renderApp();
+  var { getByTestId } = renderApp();
   navigationTabs = getByTestId('navigation-tabs');
   tabContent = getByTestId('tab-content');
 });
 
 test('initial UI is rendered as expected', () => {
+  // var { getByTestId } = renderApp();
+  // navigationTabs = getByTestId('navigation-tabs');
+  // tabContent = getByTestId('tab-content');
   expect(navigationTabs.children[0]).toHaveTextContent('Home');
   expect(navigationTabs.children[1]).toHaveTextContent('News');
   expect(navigationTabs.children[2]).toHaveTextContent('Contact');
